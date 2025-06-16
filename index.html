@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chrome拡張機能</title>
-</head>
-<body>
-    <a href="extensions/imageset.zip" download>画像変更拡張機能</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>chrome拡張機能</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="header"></div>
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li><a href="https://tanaka2404.github.io/">メインページ</a></li>
+                <li><a href="https://tanaka2404.github.io/chrome-extensions">chrome拡張機能</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <a href="extensions/imageset.zip" download>画像変更拡張機能</a>
+        </div>
+    </body>
 </html>
