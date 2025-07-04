@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>chrome拡張機能</title>
         <link rel="stylesheet" href="sidebar/sidebar.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <div id="headerSidebar"></div>
@@ -20,10 +21,34 @@
                     <script type="text/javascript">(admaxads = window.admaxads || []).push({admax_id: "8931de6abe4de6c4ea7c65db3ece282d",type: "banner"});</script>
                     <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
                 </div>
+                <div id="sita">
+                    <div class="admax-ads" data-admax-id="edb461134351398eb73a358d673d8f8e" style="display:inline-block;"></div>
+                    <script type="text/javascript">(admaxads = window.admaxads || []).push({admax_id: "edb461134351398eb73a358d673d8f8e",type: "banner"});</script>
+                    <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
+                </div>
             </div>
-            <a href="extensions/imageset.zip" download>画像変更拡張機能</a>
+            <h1 class="title">chrome拡張機能いろいろ</h1>
+            <div class="maincontent">
+                <p>
+                    <select name="" id="select">
+                        <option value="">選択してください</option>
+                        <option value="imageEdit">画像変更拡張機能</option>
+                    </select>
+                </p>
+                <button id="downloadButton" class="downloadButton" onclick="IEdownload();">ダウンロード</button>
+                <!-- <p><a href="extensions/imageset.zip" download>画像変更拡張機能</a></p> -->
+            </div>
         </div>
         <script>
+            function IEdownload(){
+                const downloadLink = document.createElement('a');
+                downloadLink.href = 'extensions/imageset.zip';
+                downloadLink.download = 'imageset.zip'; // 保存時のファイル名を指定
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
+
             fetch('https://raw.githubusercontent.com/tanaka2404/tanaka2404.github.io/refs/heads/main/sidebar/sidebar.html')
             .then(response => response.text())
                 .then(html => {
