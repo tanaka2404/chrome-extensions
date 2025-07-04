@@ -4,27 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>chrome拡張機能</title>
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://raw.githubusercontent.com/tanaka2404/tanaka2404.github.io/refs/heads/main/sidebar/sidebar.css">
     </head>
     <body>
-        <div class="header"></div>
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-        <label for="openSidebarMenu" class="sidebarIconToggle">
-            <div class="spinner diagonal part-1"></div>
-            <div class="spinner horizontal"></div>
-            <div class="spinner diagonal part-2"></div>
-        </label>
-        <div id="sidebarMenu">
-            <ul class="sidebarMenuInner">
-                <li><a href="https://tanaka2404.github.io/">メインページ</a></li>
-                <li><a href="https://tanaka2404.github.io/chrome-extensions/">chrome拡張機能</a></li>
-                <li><a href="https://tanaka2404.github.io/clock/">時計</a></li>
-                <li><a href="https://tanaka2404.github.io/probability-game/">確率ゲーム</a></li>
-                <li><a href="https://tanaka2404.github.io/aooni-portable">青鬼6.23ポータブル</a></li>
-            </ul>
-        </div>
+        <div id="headerSidebar"></div>
         <div class="main">
             <a href="extensions/imageset.zip" download>画像変更拡張機能</a>
         </div>
+        <script>
+            fetch('https://raw.githubusercontent.com/tanaka2404/tanaka2404.github.io/refs/heads/main/sidebar/sidebar.html')
+            .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const targetElement = doc.querySelector('#fetchContent');
+                    const resultContainer = document.getElementById('headerSidebar');
+                    if (targetElement) {
+                    resultContainer.innerHTML = '';
+                    resultContainer.appendChild(targetElement.cloneNode(true));
+                    }
+                })
+        </script>
     </body>
 </html>
