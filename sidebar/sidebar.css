@@ -23,16 +23,17 @@ body {
     position: fixed;
     height: 60px;
     overflow: hidden;
-    z-index: 10;
+    z-index: 1000;
     border-bottom: 2px outset;
     background-color: #FFF;
 }
 #sidebarMenu {
-    height: 100%;
+    height: calc(100% - 63px);
     position: fixed;
     right: 0;
+    top: 0px;
     width: 250px;
-    /* margin-top: 60px; */
+    margin-top: calc(60px + 3px);
     transform: translateX(250px);
     transition: transform 250ms ease-in-out;
     border-left: 2px outset;
@@ -40,10 +41,8 @@ body {
     z-index: 999;
 }
 .sidebarMenuInner{
-    margin:0;
     padding:0;
     border-top: 1px solid rgba(255, 255, 255, 0.10);
-    z-index: 1000;
 }
 .sidebarMenuInner li{
     list-style: none;
@@ -66,21 +65,19 @@ body {
     cursor: pointer;
     text-decoration: none;
 }
-.openSidebarMenu:checked ~ #sidebarMenu {
-    transform: translateX(0);
-}
-
+.openSidebarMenu:checked ~ #sidebarMenu {transform: translateX(0);}
 .openSidebarMenu {
     transition: all 0.3s;
     box-sizing: border-box;
     display: block;
+    z-index: 10001;
 }
 .sidebarIconToggle {
     transition: all 0.3s;
     box-sizing: border-box;
     cursor: pointer;
     position: absolute;
-    z-index: 99;
+    z-index: 10001;
     height: 100%;
     width: 100%;
     top: 22px;
@@ -88,48 +85,10 @@ body {
     height: 22px;
     width: 22px;
 }
-.spinner {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: #333;
-}
-.horizontal {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    position: relative;
-    float: right;
-    margin-top: 3px;
-}
-.diagonal.part-1 {
-    position: relative;
-    transition: all 0.3s;
-    box-sizing: border-box;
-    float: right;
-}
-.diagonal.part-2 {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    position: relative;
-    float: right;
-    margin-top: 3px;
-}
-.openSidebarMenu:checked ~ .sidebarIconToggle > .horizontal {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    opacity: 0;
-}
-.openSidebarMenu:checked ~ .sidebarIconToggle > .diagonal.part-1 {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    transform: rotate(135deg);
-    margin-top: 8px;
-}
-.openSidebarMenu:checked ~ .sidebarIconToggle > .diagonal.part-2 {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    transform: rotate(-135deg);
-    margin-top: -9px;
-}
+.spinner {transition: all 0.3s;box-sizing: border-box;position: absolute;height: 3px;width: 100%;background-color: #333;}
+.horizontal {transition: all 0.3s;box-sizing: border-box;position: relative;float: right;margin-top: 3px;}
+.diagonal.part-1 {position: relative;transition: all 0.3s;box-sizing: border-box;float: right;}
+.diagonal.part-2 {transition: all 0.3s;box-sizing: border-box;position: relative;float: right;margin-top: 3px;}
+.openSidebarMenu:checked ~ .sidebarIconToggle > .horizontal {transition: all 0.3s;box-sizing: border-box;opacity: 0;}
+.openSidebarMenu:checked ~ .sidebarIconToggle > .diagonal.part-1 {transition: all 0.3s;box-sizing: border-box;transform: rotate(135deg);margin-top: 8px;}
+.openSidebarMenu:checked ~ .sidebarIconToggle > .diagonal.part-2 {transition: all 0.3s;box-sizing: border-box;transform: rotate(-135deg);margin-top: -9px;}
