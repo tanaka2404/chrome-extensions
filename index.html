@@ -4,39 +4,37 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>chrome拡張機能</title>
-        <link rel="stylesheet" href="sidebar/sidebar.css">
+        <link rel="stylesheet" href="FetchContent/css/fetch.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div id="headerSidebar"></div>
+        <div id="header"></div>
         <div class="main">
+            <!-- AD -->
             <div id="koukoku">
-                <div id="hidari">
-                    <div class="admax-ads" data-admax-id="1b5dea626d0aa7b93fc418450ffb1c42" style="display:inline-block;width:160px;height:600px;"></div>
-                    <script type="text/javascript">(admaxads = window.admaxads || []).push({admax_id: "1b5dea626d0aa7b93fc418450ffb1c42",type: "banner"});</script>
-                    <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
-                </div>
                 <div id="migi">
-                    <div class="admax-ads" data-admax-id="8931de6abe4de6c4ea7c65db3ece282d" style="display:inline-block;width:160px;height:600px;"></div>
-                    <script type="text/javascript">(admaxads = window.admaxads || []).push({admax_id: "8931de6abe4de6c4ea7c65db3ece282d",type: "banner"});</script>
-                    <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
-                </div>
-                <div id="sita">
-                    <div class="admax-ads" data-admax-id="edb461134351398eb73a358d673d8f8e" style="display:inline-block;"></div>
-                    <script type="text/javascript">(admaxads = window.admaxads || []).push({admax_id: "edb461134351398eb73a358d673d8f8e",type: "banner"});</script>
-                    <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
+                    <!-- admax -->
+                        <script src="https://adm.shinobi.jp/s/8931de6abe4de6c4ea7c65db3ece282d"></script>
+                    <!-- admax -->
                 </div>
             </div>
-            <h1 class="title">chrome拡張機能いろいろ</h1>
-            <div class="maincontent">
-                <p>
+            <!-- AD -->
+            <div class="pages">
+                <ul class="pageList">
+                    <li><a href="https://pc-bennri.com/">メインページ</a></li>
+                    <li><a href="https://pc-bennri.com/clock/">時計</a></li>
+                    <li><a href="https://pc-bennri.com/probability-game/">確率ゲーム</a></li>
+                    <li><a href="https://pc-bennri.com/chrome-extensions">chromeの拡張機能</a></li>
+                    <li><a href="https://pc-bennri/aooni-portable">青鬼ポータブル</a></li>
+                </ul>
+            </div>
+            <div class="MainContent">
+                <h1 class="title">chrome拡張機能いろいろ</h1>
                     <select name="" id="select">
                         <option value="">選択してください</option>
                         <option value="imageEdit">画像変更拡張機能</option>
                     </select>
-                </p>
-                <button id="downloadButton" class="downloadButton" onclick="IEdownload();">ダウンロード</button>
-                <!-- <p><a href="extensions/imageset.zip" download>画像変更拡張機能</a></p> -->
+                    <button id="downloadButton" class="downloadButton" onclick="IEdownload();">ダウンロード</button>
             </div>
         </div>
         <script>
@@ -48,19 +46,7 @@
                 downloadLink.click();
                 document.body.removeChild(downloadLink);
             }
-
-            fetch('https://raw.githubusercontent.com/tanaka2404/tanaka2404.github.io/refs/heads/main/sidebar/sidebar.html')
-            .then(response => response.text())
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const targetElement = doc.querySelector('#fetchContent');
-                    const resultContainer = document.getElementById('headerSidebar');
-                    if (targetElement) {
-                    resultContainer.innerHTML = '';
-                    resultContainer.appendChild(targetElement.cloneNode(true));
-                    }
-                })
         </script>
+        <script src="FetchContent/js/header.js"></script>
     </body>
 </html>
